@@ -14,11 +14,15 @@ body {
   margin: 0;
   background: #f7f3ec;
   color: #1e1a17;
-  font-family: Arial, sans-serif;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
 }
 
 * {
   box-sizing: border-box;
+}
+
+img {
+  display: block;
 }
 
 ::selection {
