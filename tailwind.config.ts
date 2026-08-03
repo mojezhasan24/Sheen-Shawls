@@ -5,23 +5,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ivory: '#F7F3EC',
-        beige: '#D9CDB8',
-        cream: '#F4EFE7',
-        charcoal: '#1E1A17',
-        walnut: '#5B4333',
-        bronze: '#8E735A',
-        gold: '#C7A16A',
+        ivory: '#F5F0E8',
+        surface: '#EDE7DA',
+        ink: '#1A1410',
+        muted: '#7B6A59',
+        accent: '#9E8060',
+        rule: '#C8BAA4',
+        hover: '#E8DFD0',
       },
       fontFamily: {
-        serif: ['Georgia', 'Times New Roman', 'serif'],
-        sans: ['Inter', 'Arial', 'sans-serif'],
+        display: ['var(--font-display)', 'Georgia', 'serif'],
+        script: ['var(--font-script)', 'cursive'],
+        serif: ['Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', 'Georgia', 'serif'],
+        sans: ['system-ui', 'Arial', 'sans-serif'],
       },
-      boxShadow: {
-        luxe: '0 20px 80px rgba(27, 20, 15, 0.12)',
-      },
-      backgroundImage: {
-        grain: 'radial-gradient(circle at 20% 20%, rgba(199,161,106,0.12), transparent 22%), radial-gradient(circle at 80% 0%, rgba(91,67,51,0.08), transparent 20%)',
+      transitionTimingFunction: {
+        luxe: 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },
