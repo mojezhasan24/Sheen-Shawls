@@ -64,56 +64,61 @@ const archiveEntries = {
   },
 } as const;
 
-const EYE = 'text-[10px] uppercase tracking-[0.46em] text-[#7B6A59]';
+const EYE = 'text-[9px] sm:text-[10px] uppercase tracking-[0.42em] sm:tracking-[0.46em] text-[#7B6A59]';
 
 export default function ArchiveDetailPage({ params }: { params: { slug: string } }) {
   const entry = archiveEntries[params.slug as keyof typeof archiveEntries];
   if (!entry) notFound();
 
   return (
-    <main className="min-h-screen bg-[#F5F0E8] text-[#1A1410]">
-      <div className="relative min-h-screen overflow-hidden">
+    <main className="min-h-[100dvh] bg-[#F5F0E8] text-[#1A1410] overflow-x-hidden">
+      <div className="relative min-h-[100dvh]">
         <div className="absolute inset-0">
           <img src="/img22.png" alt="" className="h-full w-full object-cover opacity-[0.38]" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-[#F5F0E8]/68 via-[#F5F0E8]/52 to-[#F5F0E8]/72" />
 
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-[1320px] flex-col px-6 py-5 md:px-12 lg:px-20">
-          <header className="flex items-center justify-between border-b border-[#C8BAA4] pb-5">
+        <div className="relative z-10 mx-auto flex min-h-[100dvh] max-w-[1320px] flex-col px-5 py-4 sm:px-8 sm:py-6 md:px-12 lg:px-20">
+          <header className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-4 border-b border-[#C8BAA4] pb-4 sm:pb-5 pt-safe">
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#EDE7DA] md:h-14 md:w-14">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EDE7DA] md:h-14 md:w-14">
                 <img src="/logo_bg_less.png" alt="Sheen Shawls" className="h-full w-full rounded-full object-cover" />
               </div>
               <div className="leading-none">
-                <p className="font-script text-[1.4rem] leading-none text-[#1A1410] md:text-[1.6rem]">Sheen Shawls</p>
-                <p className="mt-1.5 text-[8px] uppercase tracking-[0.36em] text-[#7B6A59]">Delhi · Heritage House · Est. 1990</p>
+                <p className="font-script text-[1.35rem] leading-none text-[#1A1410] sm:text-[1.5rem] md:text-[1.6rem]">Sheen Shawls</p>
+                <p className="mt-1 sm:mt-1.5 text-[8px] uppercase tracking-[0.32em] sm:tracking-[0.36em] text-[#7B6A59]">Delhi · Heritage House · Est. 1990</p>
               </div>
             </div>
-            <Link href="/" className="inline-block border border-[#1A1410] px-5 py-2 text-[10px] uppercase tracking-[0.4em] text-[#1A1410] transition-all duration-500 hover:bg-[#1A1410] hover:text-[#F5F0E8]">← Return</Link>
+            <Link
+              href="/"
+              className="inline-flex min-h-[38px] items-center justify-center border border-[#1A1410] px-4 py-2 text-[9px] sm:text-[10px] uppercase tracking-[0.38em] text-[#1A1410] transition-all duration-300 hover:bg-[#1A1410] hover:text-[#F5F0E8] active:scale-[0.98]"
+            >
+              ← Return
+            </Link>
           </header>
 
-          <section className="flex flex-1 items-start py-12 md:py-16 lg:py-20">
-            <article className="grid w-full max-w-5xl gap-10 md:grid-cols-[0.75fr_1.25fr] lg:gap-16">
-              <div className="bg-[#EDE7DA] p-6 lg:p-8">
-                <p className={EYE + ' mb-4'}>{entry.kicker}</p>
-                <h1 className="font-display font-light leading-[1.02] text-[#1A1410]"
-                  style={{ fontSize: 'clamp(1.6rem, 4vw, 3rem)' }}>{entry.title}</h1>
-                <div className="mt-8 aspect-[3/4] bg-[#F5F0E8]" />
+          <section className="flex flex-1 items-start py-8 sm:py-12 md:py-16 lg:py-20">
+            <article className="grid w-full max-w-5xl gap-6 sm:gap-10 md:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+              <div className="bg-[#EDE7DA] p-5 sm:p-6 lg:p-8">
+                <p className={EYE + ' mb-3 sm:mb-4'}>{entry.kicker}</p>
+                <h1 className="font-display font-light leading-[1.05] text-[#1A1410]"
+                  style={{ fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}>{entry.title}</h1>
+                <div className="mt-6 sm:mt-8 aspect-[3/4] bg-[#F5F0E8]" />
               </div>
-              <div className="flex flex-col justify-center bg-[#F5F0E8] p-6 lg:p-10">
-                <p className="text-[1rem] leading-[2] text-[#3D3028] md:text-[1.05rem]">{entry.intro}</p>
-                <div className="mt-8 space-y-5">
+              <div className="flex flex-col justify-center bg-[#F5F0E8] p-5 sm:p-6 lg:p-10">
+                <p className="text-[0.95rem] leading-[1.85] text-[#3D3028] sm:text-[1.05rem] sm:leading-[2]">{entry.intro}</p>
+                <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-5">
                   {entry.body.map(p => (
-                    <p key={p} className="text-[0.95rem] leading-[2] text-[#5A4A40]">{p}</p>
+                    <p key={p} className="text-[0.9rem] leading-[1.85] text-[#5A4A40] sm:text-[0.95rem] sm:leading-[2]">{p}</p>
                   ))}
                 </div>
-                <div className="mt-10 flex flex-wrap gap-4 text-[10px] uppercase tracking-[0.4em]">
+                <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 text-[10px] uppercase tracking-[0.4em]">
                   <a href="mailto:sheenshawls@gmail.com?subject=Private%20Viewing%20Enquiry"
-                    className="inline-block bg-[#1A1410] px-6 py-3 text-[#F5F0E8] transition-all duration-500 hover:bg-[#3D2E24]">
+                    className="inline-flex min-h-[44px] items-center justify-center bg-[#1A1410] px-6 py-3 text-center text-[#F5F0E8] transition-all duration-300 hover:bg-[#3D2E24] active:scale-[0.98]">
                     Request Private Viewing
                   </a>
                   <Link href="/"
-                    className="inline-block border border-[#1A1410] px-6 py-3 text-[#1A1410] transition-all duration-500 hover:bg-[#1A1410] hover:text-[#F5F0E8]">
+                    className="inline-flex min-h-[44px] items-center justify-center border border-[#1A1410] px-6 py-3 text-center text-[#1A1410] transition-all duration-300 hover:bg-[#1A1410] hover:text-[#F5F0E8] active:scale-[0.98]">
                     ← All Collections
                   </Link>
                 </div>
@@ -121,8 +126,10 @@ export default function ArchiveDetailPage({ params }: { params: { slug: string }
             </article>
           </section>
 
-          <footer className="mt-auto border-t border-[#C8BAA4] pt-5">
-            <p className="text-[10px] uppercase tracking-[0.42em] text-[#1A1410]">Sheen Shawls by Shawls Darners · Heritage Restoration · Private Consultations</p>
+          <footer className="mt-auto border-t border-[#C8BAA4] pt-4 pb-safe">
+            <p className="text-[8px] sm:text-[10px] uppercase tracking-[0.38em] sm:tracking-[0.42em] text-[#1A1410] text-center sm:text-left">
+              Sheen Shawls by Shawls Darners · Heritage Restoration · Private Consultations
+            </p>
           </footer>
         </div>
       </div>
