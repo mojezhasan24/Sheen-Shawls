@@ -221,7 +221,6 @@ export default function HomePage() {
             playsInline
             webkit-playsinline="true"
             preload="metadata"
-            poster="/logo_bg_less.png"
           >
             <source src="/intro.mp4" type="video/mp4" />
           </video>
